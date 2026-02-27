@@ -32,3 +32,43 @@ A simple PowerShell script to rename font files (.ttf, .otf, .ttc, .fon) based o
      - Display progress in the console.
 
 4. **Example Output**:
+
+=== FONT RENAMING - VERSION WITH .FON AND STYLES ===
+'Title' attribute found at index 21
+Fonts found: 10
+Processing: 137.ttf
+Detected title (family + style): Montserrat Regular
+→ Montserrat Regular.ttf
+Processing: 85f1255.fon
+Detected title (family + style): Terminal
+→ Terminal.fon
+=== SUMMARY ===
+Successfully renamed: 8
+Failed or without title: 2
+Total processed: 10
+Process finished. Check the folder.
+
+
+
+5. **Troubleshooting**:
+- **No fonts detected**: Check file extensions (must be lowercase or uppercase .ttf/.fon etc.). The script uses case-insensitive matching.
+- **Empty title error**: Some corrupted or non-standard fonts may lack metadata. These will be skipped.
+- **Permission issues**: Run PowerShell as Administrator if renaming fails.
+- **Script blocked**: If execution is disabled, use the `Set-ExecutionPolicy` command mentioned above.
+- **Advanced**: Edit `$fonts` filter if you need to add more extensions.
+
+## Limitations
+- Works only on Windows (relies on Shell COM for metadata).
+- May not extract perfect names for very old or damaged fonts.
+- Does not install fonts; only renames files.
+- If "Title" attribute is missing (rare), the script exits early.
+
+## Contributing
+Feel free to fork and submit pull requests for improvements, like adding fallback methods or supporting more formats.
+
+## License
+MIT License - Free to use, modify, and distribute.
+
+---
+
+Created by [Your Name or Handle] - 2026
